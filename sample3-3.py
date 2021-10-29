@@ -1,12 +1,15 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 #numpy配列でも使えるシグモイド関数を定義
 def Sigmoid_Fuction(X):
     return 1 / (1 + np.exp(-X))
 
-x = np.array(input().split(", "), dtype = "float").T
-arr = np.array(((1/3, 1/3, 1/3), (1, 0, 0), (1/2, 1, -1/2)))
-middle = arr @ x
-y = Sigmoid_Fuction(middle)
-print(y)
+#入力層とバイアス、重み付けの初期化
+x = np.array((1, 0.5, 1))#入力層とバイアス
+w = np.array(((0.1, 0.3, 0.5),#第一入力値に対する重み
+              (0.2, 0.4, 0.6),
+              (0.1, 0.2, 0.3)))#バイアスに対する重み
+a = x @ w
+z = Sigmoid_Fuction(a)
+print(a)
+print(z)
